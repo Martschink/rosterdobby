@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Cut from {{  team.name  }} {% endblock %}
+
+{% block content %}
+<h2> {{ team.name }} - Cut Player</h2>
+
+
+{% if team %}
+{% ifequal team.email user.email %}
+Select player to cut.
+
+	<form action="/cut/{{ team.id }}" method="post">
+	{% csrf_token %}
+	{% for player in team.player_set.all %}
+		<input type='radio' name='player' id="player{{ forloop.counter }}" value ={{ player.id }}>{{ player.name }}<br>
+	{% endfor %}
+	<input type="submit" value="Cut">
+	</form>
+
+
+{% else %}
+		<p>It looks like you're trying to cut a player from another team's roster.</p>
+{% endifequal %}
+
+{% else %}
+	<p>No info are available.</p>
+{% endif %}
+
+{% endblock %}

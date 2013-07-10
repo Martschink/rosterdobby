@@ -1,0 +1,76 @@
+<html>
+<head>
+	<title>{% block title %}{% endblock %}</title>
+</head>
+
+<style type="text/css">
+
+    body {font-family: helvetica; width: 900px; margin: 0 auto}
+
+	.rosterbox	{background-color:#A8A8BD;
+				height: 200px;
+				width: 200px;
+				margin: 10px 30px 10px 30px;
+				padding: 10px 20px 20px 20px;}
+
+	.rosterbox a {font-size: 16px;}
+
+</style>
+
+
+<body>
+<div style="background-color:#ADD8E6">
+<div style="font-family: helvetica; font-size:9pt">Raul Castro Invitational
+</div>
+<span style="font-family:helvetica; font-size:19pt; font-weight:bold"><a href="/dobby/">ROSTER DOBBY</a>
+</span>
+
+
+<span style="float:right; font-family:helvetica; font-size:10pt; padding-top:10; margin-bottom:0px; padding-bottom:0px">
+<span style="padding-right:10"><a href="/dobby/">Home</a></span>
+<span style="padding-right:10"><a href="http://games.espn.go.com/flb/leagueoffice?leagueId=55354">League Office</a></span>
+<span style="padding-right:10"><a href="https://sites.google.com/site/raulcastroleague/league-rules">League Rules</a></span>
+<span style="padding-right:10"><a href="/accounts/password_change/">Change Password</a></span>
+<span style="padding-right:10"><a href="/transactionlog/">Transaction Log</a></span>
+{% if user.is_authenticated %}
+            <span style="padding-right:10"><a href="/accounts/logout/">Logout</a></span>
+		{% else %}
+            <span style="padding-right:10"><a href="/accounts/login/">Log in</a></span>
+		{% endif %}
+<span style="padding-right:10"><a href="/email/">Email rosters to me</a></span>
+
+</span>
+
+</div>
+
+
+	{% block content %}{% endblock %}
+<br>
+<br>
+
+<div style="background-color:#ADD8E6">
+<div style="font-family: helvetica; font-size:9pt">Raul Castro Invitational
+</div>
+<span style="font-family:helvetica; font-size:19pt; font-weight:bold"><a href="/dobby/">ROSTER DOBBY</a>
+</span>
+
+
+<span style="float:right; font-family:helvetica; font-size:10pt; padding-top:10; margin-bottom:0px; padding-bottom:0px">
+<span style="padding-right:10"><a href="/dobby/">Home</a></span>
+<span style="padding-right:10"><a href="http://games.espn.go.com/flb/leagueoffice?leagueId=55354">League Office</a></span>
+<span style="padding-right:10"><a href="https://sites.google.com/site/raulcastroleague/league-rules">League Rules</a></span>
+<span style="padding-right:10"><a href="/accounts/password_change/">Change Password</a></span>
+<span style="padding-right:10"><a href="/transactionlog/">Transaction Log</a></span>
+{% if user.is_authenticated %}
+            <span style="padding-right:10"><a href="/accounts/logout/">Logout</a></span>
+		{% else %}
+            <span style="padding-right:10"><a href="/accounts/login/">Log in</a></span>
+		{% endif %}
+<span style="padding-right:10"><a href="/email/">Email rosters to me</a></span>
+
+</span>
+</div>
+
+</body>
+
+</html>

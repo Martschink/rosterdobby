@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}{{  team.name  }}{% endblock %}
+
+
+{% block content %}
+
+<h2> {{ team.name }}</h2>
+{{ team.email }}
+{{ user.email }}
+
+{% if team %}
+	<table>
+		<tr><th style="width:200px">Player</th><th>Date Added</th></tr>
+	{% for player in team.player_set.all %}
+		<tr>
+		<td>{{ player.name }}</td>
+		<td>{{ player.date_added }}</td>
+		</tr>
+
+	{% endfor %}
+</table>
+<br>
+
+<b>Roster Management</b><br>
+{% ifequal team.email user.email %}
+    <a href="/promote/{{ team.id }}">Promote</a> or <a href="/cut/{{ team.id }}">cut</a> from your minor league roster.
+
+        {% if team.player_set.count < 8 %}
+            <form action="/add/{{ team.id }}" method="post">
+            {% csrf_token %}
+            <input type="text" name="player">
+            <input type="submit" value="Add Free Agent">
+            </form>
+            <form action="/demote/{{ team.id }}" method="post">
+            {% csrf_token %}
+            <input type="text" name="player">
+            <input type="submit" value="Demote Player">
+            </form>
+
+        {% else %}
+            <br>Your minor league roster is full.  Cut or promote a player to free a roster slot.
+        {% endif %}
+{% else %}
+		Log in to make adjustments to your roster.
+{% endifequal %}
+
+ <a href="/eligibilityCheck/ {{ team.id }}">Check IP and AB</a><br>
+
+
+{% else %}
+	<p>No info are available.</p>
+{% endif %}
+
+{% endblock %}

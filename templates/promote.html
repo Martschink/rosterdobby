@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Promote from {{  team.name  }} {% endblock %}
+
+{% block content %}
+<h1> {{ team.name }} - Promote Player</h1>
+{{ team.email }}
+{{ user.email }}
+Select player to promote.
+<br>
+{% ifequal team.email user.email %}
+
+	<form action="/promote/{{ team.id }}" method="post">
+	{% csrf_token %}
+	{% for player in team.player_set.all %}
+		<input type='radio' name='player' id="player{{ forloop.counter }}" value ={{ player.id }}>{{ player.name }}<br>
+	{% endfor %}
+	<input type="submit" value="Promote">
+	</form>
+
+{% else %}
+		<p>It looks like you're trying to Rule 5 a player from another team's roster.</p>
+{% endifequal %}
+
+{% endblock %}

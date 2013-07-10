@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Roster Dobby Transaction Log{% endblock %}
+
+{% block content %}
+
+
+{% if transactions %}
+<br>
+	{% for transaction in transactions %}
+		<a href="/team/{{ transaction.team.id }}">{{ transaction.team }}</a> {{ transaction.transaction_type }} {{ transaction.player_name }} {{ transaction.transaction_date }}
+		{% for player in team.player_set.all %}
+			{{ player.name }}<br>
+		{% endfor %}
+		<br>
+	{% endfor %}
+
+{% else %}
+	<p>Error?</p>
+{% endif %}
+{% endblock %}
+

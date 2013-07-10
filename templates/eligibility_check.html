@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Audit {{  team.name  }} {% endblock %}
+
+{% block content %}
+<h1> {{ team.name }} - Check Eligibility</h1>
+{{ team.email }}
+{{ user.email }}
+
+<br>
+	{% for player in team.player_set.all %}
+        {{ player.name }} IP: {{ player.IP }}<br>
+	{% endfor %}
+
+<br>
+Please note that IP numbers are currently rounded down to the nearest integer.  <br>
+AB numbers are not available yet.
+
+
+
+{% endblock %}

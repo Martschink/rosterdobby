@@ -1,0 +1,48 @@
+<html>
+<head>
+	<title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+<div id="header" style="background-color:#ADD8E6;">
+<table>
+	<tr>
+		<td style="width:400px"><a href="/dobby/"><h2>Roster Dobby</h2></a></td>
+
+		{% if user.is_authenticated %}
+			<td style="width:250px">
+			User:  {{ user.username }}</td>
+			<td><a href="/accounts/logout/">Logout</a></td>
+		{% else %}
+			<td style="width:250px"></td>
+			<td style="width:100px"><a href="/accounts/login/">Log in</a></td>
+		{% endif %}
+
+</tr>
+</table>
+</div>
+
+	{% block content %}{% endblock %}
+<br>
+<br>
+<div style="background-color:#ADD8E6;">
+<table>
+	<tr>
+
+		<td ><a href="/dobby/">Home</a></td>
+		<td style="width:25px"></td>
+        <td><a href="http://games.espn.go.com/flb/leagueoffice?leagueId=55354">League Office</a></td>
+        <td style="width:25px"></td>
+        <td><a href="https://sites.google.com/site/raulcastroleague/league-rules">League Rules</a></td>
+        <td style="width:25px"></td>
+        <td><a href="/accounts/password_change/">Change Password</a></td>
+        <td style="width:25px"></td>
+        <td><a href="/transactionlog/">Transaction Log</a></td>
+        <td style="width:25px"></td>
+        <td>Check AB and IP</td>
+
+      </tr>
+</table>
+</div>
+</body>
+
+</html>
