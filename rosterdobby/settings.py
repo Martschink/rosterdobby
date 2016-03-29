@@ -79,7 +79,7 @@ STATICFILES_FINDERS = (
 )
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = 'l0xujxj#^i#cd0=i$s%(+q!513th9)e-5&amp;r8)np*3s1rr59=o*'
+SECRET_KEY = 'l###
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -115,7 +115,7 @@ TEMPLATE_DIRS = ('/home/tree/rosterdobby/templates',
 EMAIL_HOST="smtp.gmail.com"
 EMAIL_PORT=587
 EMAIL_HOST_USER="raulcastrorosterdobby"
-EMAIL_HOST_PASSWORD="BadRobot"
+EMAIL_HOST_PASSWORD=
 EMAIL_USE_TLS=True
 
 INSTALLED_APPS = (
